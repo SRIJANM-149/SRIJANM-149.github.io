@@ -16,12 +16,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=15">
+<link rel="stylesheet" href="assets/style.css?v=16">
 <script>
   try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
+<noscript><style>#preloader { display: none; }</style></noscript>
 </head>
 <body id="top">
+<div id="preloader" aria-hidden="true">
+  <div class="pl-mark">
+    <svg viewBox="0 0 24 24">
+      <path class="pl-code" d="M5.5 7.5 2.5 12l3 4.5M18.5 7.5l3 4.5-3 4.5"/>
+      <g class="pl-c pl-c1"><path class="pl-wick" d="M9.5 5v13"/><rect class="pl-body" x="8" y="8" width="3" height="6.5" rx=".7"/></g>
+      <g class="pl-c pl-c2"><path class="pl-wick" d="M14.5 6.5v13"/><rect class="pl-body" x="13" y="10" width="3" height="6.5" rx=".7"/></g>
+    </svg>
+  </div>
+  <div class="pl-bar"><i></i></div>
+</div>
 <header class="topbar">
   <div class="topbar-in">
     <a class="mark" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="m-code" d="M5.5 7.5 2.5 12l3 4.5M18.5 7.5l3 4.5-3 4.5"/><path class="m-wick" d="M9.5 5v13M14.5 6.5v13"/><rect class="m-body" x="8" y="8" width="3" height="6.5" rx=".7"/><rect class="m-body" x="13" y="10" width="3" height="6.5" rx=".7"/></svg></a>
@@ -504,6 +515,24 @@
     });
     if (mq.addEventListener) mq.addEventListener("change", label); else if (mq.addListener) mq.addListener(label);
     label();
+  })();
+</script>
+<script>
+  // Preloader: shown for at least 0.6 s after navigation starts, never longer than 3 s.
+  (function () {
+    var el = document.getElementById("preloader"), gone = false;
+    function hide() {
+      if (gone || !el) return;
+      gone = true;
+      el.classList.add("done");
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 500);
+    }
+    function onLoad() {
+      var waited = (window.performance && performance.now) ? performance.now() : 0;
+      setTimeout(hide, Math.max(0, 600 - waited));
+    }
+    if (document.readyState === "complete") onLoad(); else window.addEventListener("load", onLoad);
+    setTimeout(hide, 3000);
   })();
 </script>
 </body>
