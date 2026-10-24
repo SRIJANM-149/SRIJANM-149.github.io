@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
 <script>
   try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -24,14 +24,30 @@
 </head>
 <body id="top">
 <div id="preloader" aria-hidden="true">
-  <div class="pl-mark">
-    <svg viewBox="0 0 24 24">
-      <path class="pl-code" d="M5.5 7.5 2.5 12l3 4.5M18.5 7.5l3 4.5-3 4.5"/>
-      <g class="pl-c pl-c1"><path class="pl-wick" d="M9.5 5v13"/><rect class="pl-body" x="8" y="8" width="3" height="6.5" rx=".7"/></g>
-      <g class="pl-c pl-c2"><path class="pl-wick" d="M14.5 6.5v13"/><rect class="pl-body" x="13" y="10" width="3" height="6.5" rx=".7"/></g>
+  <div class="pl-wrap">
+    <svg class="pl-ring" viewBox="0 0 120 120">
+      <defs>
+        <filter id="pl-wobble" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n">
+            <animate attributeName="baseFrequency" values="0.03;0.05;0.035;0.03" dur="2.4s" repeatCount="indefinite"/>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+      <g filter="url(#pl-wobble)">
+        <circle class="pl-stroke pl-s1" cx="60" cy="60" r="48" pathLength="100"/>
+        <circle class="pl-stroke pl-s2" cx="60" cy="60" r="46.5" pathLength="100"/>
+      </g>
     </svg>
+    <div class="pl-mark">
+      <svg viewBox="0 0 24 24">
+        <path class="pl-code" d="M5.5 7.5 2.5 12l3 4.5M18.5 7.5l3 4.5-3 4.5"/>
+        <path class="pl-wick" d="M9.5 5v13M14.5 6.5v13"/>
+        <rect class="pl-body" x="8" y="8" width="3" height="6.5" rx=".7"/>
+        <rect class="pl-body" x="13" y="10" width="3" height="6.5" rx=".7"/>
+      </svg>
+    </div>
   </div>
-  <div class="pl-bar"><i></i></div>
 </div>
 <header class="topbar">
   <div class="topbar-in">
