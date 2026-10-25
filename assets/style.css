@@ -170,6 +170,7 @@ html { scroll-padding-top: 72px; }
 .facts .ic { margin-top: 1px; color: var(--text-3); }
 .social { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .social li { margin: 0; }
+.social li.wide { grid-column: 1 / -1; }
 .social a { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); font-size: 14px; }
 .social a:hover { background: var(--bg-2); text-decoration: none; }
 .side .label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin: 0 0 6px; }
@@ -177,9 +178,10 @@ html { scroll-padding-top: 72px; }
 .cv li { margin: 0 0 4px; }
 .cv a { display: inline-flex; align-items: center; gap: 8px; }
 @media (max-width: 820px) {
-  .social { grid-template-columns: repeat(4, auto); justify-content: start; }
+  .social { display: flex; flex-wrap: wrap; }
+  .social li.wide { grid-column: auto; }
 }
-@media (max-width: 480px) { .social { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .social { display: grid; grid-template-columns: 1fr 1fr; } .social li.wide { grid-column: 1 / -1; } }
 
 /* ---- quote + visitor card ---- */
 .quote-card { margin-top: 56px; display: flex; align-items: center; gap: 16px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); }
@@ -237,3 +239,11 @@ footer { margin-top: 20px; }
   .pl-stroke { stroke-dashoffset: 0; }
   #preloader { transition: none; }
 }
+
+/* ---- 404 ---- */
+.nf { min-height: calc(100vh - 140px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 16px; }
+.nf .code { font-family: var(--mono); font-size: 14px; color: var(--text-3); margin: 0 0 8px; }
+.nf h1 { font-size: 32px; margin: 0 0 10px; }
+.nf p { color: var(--text-2); max-width: 440px; }
+.nf .home { display: inline-flex; margin-top: 12px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); }
+.nf .home:hover { background: var(--bg-2); text-decoration: none; }

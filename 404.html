@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Srijan Mishra</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/img/icon-code.svg">
+<link rel="stylesheet" href="/assets/style.css?v=19">
+<script>
+  try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="/" aria-label="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="m-code" d="M5.5 7.5 2.5 12l3 4.5M18.5 7.5l3 4.5-3 4.5"/><path class="m-wick" d="M9.5 5v13M14.5 6.5v13"/><rect class="m-body" x="8" y="8" width="3" height="6.5" rx=".7"/><rect class="m-body" x="13" y="10" width="3" height="6.5" rx=".7"/></svg></a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/#contact">Contact</a>
+      <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="nf">
+  <p class="code">404</p>
+  <h1>This page doesn't exist.</h1>
+  <p>The link might be old or mistyped. Everything I've put online is on the main page.</p>
+  <a class="home" href="/">← Back to the main page</a>
+</main>
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById("theme-btn");
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    function current() { return root.dataset.theme || (mq.matches ? "dark" : "light"); }
+    function label() { btn.setAttribute("aria-label", current() === "dark" ? "Switch to light mode" : "Switch to dark mode"); }
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+    label();
+  })();
+</script>
+</body>
+</html>
