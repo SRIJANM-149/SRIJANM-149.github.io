@@ -247,3 +247,24 @@ footer { margin-top: 20px; }
 .nf p { color: var(--text-2); max-width: 440px; }
 .nf .home { display: inline-flex; margin-top: 12px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); }
 .nf .home:hover { background: var(--bg-2); text-decoration: none; }
+
+/* ---- GitHub stats: the README's cards, on a dark tile so gold text stays readable in both themes ---- */
+.gh-cards { display: flex; flex-wrap: wrap; gap: 12px; }
+.gh-card { display: block; min-width: 0; background: #15151a; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.gh-card:hover { border-color: var(--text-3); }
+.gh-card img { display: block; width: 100%; height: auto; }
+.gh-stats { flex: 325 1 0; }
+.gh-langs { flex: 300 1 0; }
+.gh-activity { flex: 1 1 100%; }
+.gh-act-crops { display: none; }
+@media (max-width: 600px) {
+  .gh-stats, .gh-langs { flex: 1 1 100%; }
+  /* Scaled to phone width the activity labels would be ~7px, so show each of its three columns as its own window */
+  .gh-act-full { display: none !important; }
+  .gh-act-crops { display: flex; padding: 6px 4px; }
+  .gh-crop { position: relative; flex: 1 1 0; min-width: 0; padding-bottom: 16.67%; overflow: hidden; }
+  .gh-card .gh-crop img { position: absolute; top: -64.6%; width: 461.5%; max-width: none; height: auto; }
+  .gh-crop1 img { left: -30.77%; }
+  .gh-crop2 img { left: -180.77%; }
+  .gh-crop3 img { left: -330.77%; }
+}
