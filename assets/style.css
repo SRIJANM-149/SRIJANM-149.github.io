@@ -84,6 +84,7 @@ li { margin-bottom: 6px; }
 
 .entry { margin-bottom: 26px; }
 .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.h3-note { font-weight: 400; color: var(--text-2); }
 .entry-head .date { color: var(--text-3); font-size: 14px; white-space: nowrap; }
 .entry .sub { color: var(--text-2); margin: 2px 0 8px; font-size: 15px; }
 
